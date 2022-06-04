@@ -215,6 +215,10 @@ void readModels(XMLElement *models,Group *group_input){
                 RGBs->QueryFloatAttribute("G",&rgb[i][1]);
                 RGBs->QueryFloatAttribute("B",&rgb[i][2]);
 
+                rgb[i][0]/=255.0f;
+                rgb[i][1]/=255.0f;
+                rgb[i][2]/=255.0f;
+
             }
 
             RGBs->QueryFloatAttribute("value",&shininess);
@@ -433,9 +437,6 @@ void renderScene(void) {
 		c.getUpX(),c.getUpY(), c.getUpZ());
 
 
-	//desenhar aqui
-    glPolygonMode(GL_FRONT_AND_BACK, lines ? GL_FILL : GL_LINE);
-
     if(axis){
         glDisable(GL_LIGHTING);
         glBegin(GL_LINES);
@@ -456,8 +457,10 @@ void renderScene(void) {
         glVertex3f(0.0f, 0.0f, 100.0f);
         glEnd();
         glEnable(GL_LIGHTING);
-        glColor3f(1.0f,1.0f,1.0f);
     }
+
+    glColor3f(1.0f,1.0f,1.0f);
+
 
     //Lights
     for(int i=0;i<globalLights.size();i++){
@@ -494,13 +497,13 @@ void renderScene(void) {
 
     }
 
+    //desenhar aqui
+    glPolygonMode(GL_FRONT, lines ? GL_FILL : GL_LINE);
 
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_NORMAL_ARRAY);
     //glClearColor(0.0f,0.0f,0.0f,0.0f);
     draw(group);
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+    //glDisableClientState(GL_VERTEX_ARRAY);
+    //glDisableClientState(GL_NORMAL_ARRAY);
 
 	// End of frame
     glutSwapBuffers();
@@ -808,34 +811,40 @@ int main(int argc, char** argv) {
     //Glew init
     glewInit();
 
-
-
     //  OpenGL settings
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_RESCALE_NORMAL);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_TEXTURE_2D);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
 
-    readXML(argv[1]);
-    group.loadGroupsVBO();
+    glEnable(GL_RESCALE_NORMAL);
 
     ilInit();
     ilEnable(IL_ORIGIN_SET);
     ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
 
-    float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
+    readXML(argv[1]);
+    group.loadGroupsVBO();
+
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+
+    glEnable(GL_LIGHTING);
 
     for(int i=0;i<globalLights.size();i++) {
         int glLight = getLightI(i);
         glEnable(glLight);
     }
 
+    glEnable(GL_TEXTURE_2D);
+    glClearColor(0.0f,0.0f,0.0f,0.0f);
+    //glEnable(GL_COLOR_MATERIAL);
 
-    group.print();
+
+    //float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
+
+
+    //group.print();
 
     // enter GLUT's main cycle
     glutMainLoop();

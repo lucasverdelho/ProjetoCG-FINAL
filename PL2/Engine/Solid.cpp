@@ -103,36 +103,29 @@ void Solid :: loadSolidVBO(){
 
 }
 
-void Solid :: drawSolidVBO() {
+void Solid :: drawSolidVBO(){
 
-    glPushAttrib(GL_LIGHTING_BIT);
+    glMaterialfv(GL_FRONT, GL_AMBIENT,this->getColour().getAmbient());
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,this->getColour().getDiffuse());
+    glMaterialfv(GL_FRONT, GL_EMISSION,this->getColour().getEmissive());
+    glMaterialfv(GL_FRONT, GL_SPECULAR,this->getColour().getSpecular());
+    glMaterialf(GL_FRONT, GL_SHININESS,this->getColour().getShininess());
+
+    //este (textureID)
+    glBindTexture(GL_TEXTURE_2D,this->idTextureData);
 
     glBindBuffer(GL_ARRAY_BUFFER,this->idVBO);
     glVertexPointer(3,GL_FLOAT,0,0);
 
-    if(hasNormals) {
-        glBindBuffer(GL_ARRAY_BUFFER, this->idNormals);
-        glNormalPointer(GL_FLOAT, 0, 0);
+    glBindBuffer(GL_ARRAY_BUFFER, this->idNormals);
+    glNormalPointer(GL_FLOAT, 0, 0);
 
-        glMaterialfv(GL_FRONT, GL_AMBIENT,this->getColour().getAmbient());
-        glMaterialfv(GL_FRONT, GL_DIFFUSE,this->getColour().getDiffuse());
-        glMaterialfv(GL_FRONT, GL_EMISSION,this->getColour().getEmissive());
-        glMaterialfv(GL_FRONT, GL_SPECULAR,this->getColour().getSpecular());
-        glMaterialf(GL_FRONT, GL_SHININESS,this->getColour().getShininess());
+    glBindBuffer(GL_ARRAY_BUFFER, this->idTextures);
+    glTexCoordPointer(2, GL_FLOAT, 0, 0);
 
-    }
-
-    if(hasTextures) {
-        glBindBuffer(GL_ARRAY_BUFFER, this->idTextures);
-        glTexCoordPointer(2, GL_FLOAT, 0, 0);
-    }
-
-    //glColor3f(0.0f,1.0f,0.0f);
     glDrawArrays(GL_TRIANGLES,0,this->vertexCount);
-    //glColor3f(0.0f,0.0f,0.0f);
-    //glBindTexture(GL_TEXTURE_2D,0);//BRUH
-    glPopAttrib();
 
+    glBindTexture(GL_TEXTURE_2D,0);
 
 }
 

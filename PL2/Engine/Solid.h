@@ -14,6 +14,7 @@ private:
     GLuint idVBO;
     GLuint idNormals;
     GLuint idTextures;
+    GLuint idTextureData = 0;
     int vertexCount;
     Colour colour;
     char texturePath[128];
