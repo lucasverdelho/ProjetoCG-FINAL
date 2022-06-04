@@ -1,0 +1,19 @@
+﻿  Building Custom Rule C:/Users/Nelson/Desktop/CG-Project/PL2/Engine/CMakeLists.txt
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\stdlib.h(56,48): error C2381: 'exit': redefinição; 'noreturn' difere
+C:\Users\Nelson\Desktop\CG\toolkits\glut\GL/glut.h(146): message : consulte a declaração de 'exit'
+C:\Users\Nelson\Desktop\CG-Project\PL2\Engine\main.cpp(45,15): error C2264: 'exit': erro na definição ou na declaração da função; função não chamada
+C:\Users\Nelson\Desktop\CG-Project\PL2\Engine\main.cpp(173,27): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Camera.cpp
+  Point.cpp
+  Rotate.cpp
+  Scale.cpp
+  Solid.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\stdlib.h(56,48): error C2381: 'exit': redefinição; 'noreturn' difere
+C:\Users\Nelson\Desktop\CG\toolkits\glut\GL/glut.h(146): message : consulte a declaração de 'exit'
+  Transformation.cpp
+  Translate.cpp
+  Triangle.cpp
+  group.cpp
+  tinyxml2.cpp
+  Gerando Código...

@@ -1,0 +1,10 @@
+^C:\USERS\NELSON\DESKTOP\CG-PROJECT\PL2\ENGINE\BUILD\CMAKEFILES\1D813949FF3A305D70B170E1455F34EB\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Nelson/Desktop/CG-Project/PL2/Engine -BC:/Users/Nelson/Desktop/CG-Project/PL2/Engine/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Nelson/Desktop/CG-Project/PL2/Engine/build/Engine.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

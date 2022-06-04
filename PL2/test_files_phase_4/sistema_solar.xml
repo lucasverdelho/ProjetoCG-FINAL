@@ -1,0 +1,187 @@
+<world>
+
+	<camera>
+		<position x="3" y="2" z="3" />
+		<lookAt x="0" y="0" z="0" />
+		<up x="0" y="1" z="0" />
+		<projection fov="60" near="1" far="1000" />
+	</camera>
+
+	<lights>
+		<light type="point" posx="0" posy="0.2" posz="0" />
+	</lights>
+
+	<group>
+
+		<!--Cometa-->
+		<group>
+			<transform>
+				<translate time = "10" align="True" > <!-- O campo orient diz se o objecto deve ser orientado na curva -->
+					<point x = "0" y = "0" z = "20" />
+					<point x = "20" y = "0" z = "0" />
+					<point x = "0" y = "0" z = "-20" />
+					<point x = "-20" y = "20" z = "0" />
+				</translate>
+				<scale x="0.15" y="0.15" z="0.15" />
+			</transform>
+			<models>
+				<model file="bezier.3d" /> <!-- generator bezier teapot.patch 10 bezier.3d -->
+			</models>
+		</group>
+
+		<!-- Sol -->
+		<group>
+			<transform>
+				<rotate time="60" x="0" y="1" z="0" />
+				<scale x="1.5" y="1.5" z="1.5" />
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_sun.jpg" />
+				</model>
+			</models>
+		</group>
+		<!-- PLANETAS -->
+		<!-- Mercúrio -->
+		<group>
+			<transform>
+				<rotate time="15" x="0" y="1" z="0" />
+				<translate x="2.5" y="0" z="0"/>
+				<rotate time="5" x="0" y="1" z="0" />
+				<scale x="0.1" y="0.1" z="0.1"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_mercury.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Vénus -->
+		<group>
+			<transform>
+				<rotate time="37.2" x="0" y="1" z="0" />
+				<rotate angle="42" x="0" y="1" z="0"/>
+				<translate x="3.1" y="0" z="0"/>
+				<rotate time="6" x="0" y="1" z="0" />
+				<scale x="0.17" y="0.17" z="0.17"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_venus_surface.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Terra -->
+		<group>
+			<transform>
+				<rotate time="60" x="0" y="1" z="0" />
+				<rotate angle="103" x="0" y="1" z="0"/>
+				<translate x="4.5" y="0" z="0"/>
+				<rotate time="7" x="0" y="1" z="0" />
+				<scale x="0.2" y="0.2" z="0.2"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_earth_daymap.jpg" />
+				</model>
+			</models>
+			<!-- Lua -->
+			<group>
+				<transform>
+					<rotate time="5" x="0" y="1" z="0" />
+					<rotate angle="255" x="0" y="1" z="0"/>
+					<translate x="1.5" y="0.5" z="0"/>
+					<scale x="0.3" y="0.3" z="0.3"/>
+				</transform>
+				<models>
+					<model file="sphere.3d" >
+						<texture file = "2k_moon.jpg" />
+					</model>
+				</models>
+			</group>
+		</group>
+
+		<!-- Marte -->
+		<group>
+			<transform>
+				<rotate time="113" x="0" y="1" z="0" />
+				<rotate angle="130" x="0" y="1" z="0"/>
+				<translate x="5.6" y="0" z="0"/>
+				<rotate time="8" x="0" y="1" z="0" />
+				<scale x="0.15" y="0.15" z="0.15"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_mars.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Jupiter -->
+		<group>
+			<transform>
+				<rotate time="711" x="0" y="1" z="0" />
+				<rotate angle="30" x="0" y="1" z="0"/>
+				<translate x="7.5" y="0" z="0"/>
+				<rotate time="20" x="0" y="1" z="0" />
+				<scale x="0.55" y="0.55" z="0.55"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_jupiter.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Saturno -->
+		<group>
+			<transform>
+				<rotate time="1740" x="0" y="1" z="0" />
+				<rotate angle="289" x="0" y="1" z="0"/>
+				<translate x="9.2" y="0" z="0"/>
+				<rotate time="30" x="0" y="1" z="0" />
+				<scale x="0.46" y="0.46" z="0.46"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_saturn.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Urano -->
+		<group>
+			<transform>
+				<rotate time="5040" x="0" y="1" z="0" />
+				<rotate angle="307" x="0" y="1" z="0"/>
+				<translate x="11.8" y="0" z="0"/>
+				<rotate time="35" x="0" y="1" z="0" />
+				<scale x="0.39" y="0.39" z="0.39"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_uranus.jpg" />
+				</model>
+			</models>
+		</group>
+
+		<!-- Neptuno -->
+		<group>
+			<transform>
+				<rotate time="9840" x="0" y="1" z="0" />
+				<translate x="16" y="0" z="0"/>
+				<rotate time="50" x="0" y="1" z="0" />
+				<scale x="0.36" y="0.36" z="0.36"/>
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_neptune.jpg" />
+				</model>
+			</models>
+		</group>
+
+
+	</group>
+</world>

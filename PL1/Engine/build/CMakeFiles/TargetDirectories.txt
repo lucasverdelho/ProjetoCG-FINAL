@@ -1,0 +1,3 @@
+/home/diogo/3ºano/CG/CG-Project/Engine/build/CMakeFiles/Engine.dir
+/home/diogo/3ºano/CG/CG-Project/Engine/build/CMakeFiles/edit_cache.dir
+/home/diogo/3ºano/CG/CG-Project/Engine/build/CMakeFiles/rebuild_cache.dir
