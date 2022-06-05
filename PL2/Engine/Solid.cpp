@@ -41,7 +41,6 @@ void Solid :: loadTexture(){
     ilGenImages(1, &t);
     ilBindImage(t);
     ilLoadImage((ILstring)this->texturePath);
-    //printf("\n%s\n",this->texturePath);
 
     tw = ilGetInteger(IL_IMAGE_WIDTH);
     th = ilGetInteger(IL_IMAGE_HEIGHT);
@@ -104,7 +103,6 @@ void Solid :: drawSolidVBO(){
     glMaterialfv(GL_FRONT, GL_SPECULAR,this->getColour().getSpecular());
     glMaterialf(GL_FRONT, GL_SHININESS,this->getColour().getShininess());
 
-    //este (textureID)
     glBindTexture(GL_TEXTURE_2D,this->idTextureData);
 
     glBindBuffer(GL_ARRAY_BUFFER,this->idVBO);

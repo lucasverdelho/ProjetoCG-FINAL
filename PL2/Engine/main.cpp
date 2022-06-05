@@ -223,7 +223,6 @@ void readModels(XMLElement *models,Group *group_input){
 
             RGBs->QueryFloatAttribute("value",&shininess);
 
-
             Colour colourModel = Colour(rgb[0][0],rgb[0][1],rgb[0][2],rgb[1][0],
                                 rgb[1][1],rgb[1][2],rgb[2][0],rgb[2][1],
                                 rgb[2][2],rgb[3][0],rgb[3][1],rgb[3][2],shininess);
@@ -486,7 +485,7 @@ void renderScene(void) {
                 glLightfv(GL_LightI, GL_POSITION, globalLights[i].getDir());
 
             } else if (strcmp("spot", globalLights[i].getType()) == 0) {
-
+                ;
                 const float cutoff = (const float) globalLights[i].getCutoff();
                 float dir[3];
                 dir[0] = globalLights[i].getDir()[0];
@@ -498,7 +497,6 @@ void renderScene(void) {
                 glLightfv(GL_LightI, GL_SPOT_CUTOFF, &cutoff);
 
             }
-
         }
     }
     else{
@@ -822,6 +820,7 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
+    //glEnable(GL_COLOR_MATERIAL);
 
     glEnable(GL_RESCALE_NORMAL);
 
@@ -835,7 +834,10 @@ int main(int argc, char** argv) {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
+
     glEnable(GL_LIGHTING);
+    float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
 
     for(int i=0;i<globalLights.size();i++) {
         int glLight = getLightI(i);
@@ -844,11 +846,6 @@ int main(int argc, char** argv) {
 
     glEnable(GL_TEXTURE_2D);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
-
-    float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
-
-    //group.print();
 
     // enter GLUT's main cycle
     glutMainLoop();
