@@ -12,6 +12,23 @@
 	</lights>
 
 	<group>
+		<group>
+			<transform>
+				<scale x="-100.0" y="-100.0" z="-100.0" />
+			</transform>
+			<models>
+				<model file="sphere.3d" >
+					<texture file = "2k_stars_milky_way.jpg.jpg" />
+					<color>
+						<diffuse R="255" G="255" B="255" />
+						<ambient R="255" G="255" B="255" />
+						<specular R="255" G="255" B="255" />
+						<emissive R="255" G="255" B="255" />
+						<shininess value="128" />
+					</color>
+				</model>
+			</models>
+		</group>
 
 		<!--Cometa-->
 		<group>
