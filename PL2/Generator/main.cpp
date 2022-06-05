@@ -746,7 +746,7 @@ int main(int argc, char **argv)
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
     char namefile2[20] = "sphere_nt.3d";
-    buildSphere(1, 10, 10, namefile2);
+    buildSphere(1, 40, 40, namefile2);
     // buildCone(1, 2, 10, 10, namefile2);
     // buildPlane(1, 3, namefile2);
     // buildCube(2, 3, namefile2);

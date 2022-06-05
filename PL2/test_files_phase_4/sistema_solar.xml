@@ -17,8 +17,8 @@
 				<scale x="-100.0" y="-100.0" z="-100.0" />
 			</transform>
 			<models>
-				<model file="sphere.3d" >
-					<texture file = "2k_stars_milky_way.jpg.jpg" />
+				<model file="sphere_nt.3d" >
+					<texture file = "8k_stars_milky_way.jpg" />
 					<color>
 						<diffuse R="255" G="255" B="255" />
 						<ambient R="255" G="255" B="255" />
@@ -53,8 +53,8 @@
 				<scale x="1.5" y="1.5" z="1.5" />
 			</transform>
 			<models>
-				<model file="sphere.3d" >
-					<texture file = "2k_sun.jpg" />
+				<model file="sphere_nt.3d" >
+					<texture file = "8k_sun.jpg" />
 					<color>
 						<diffuse R="255" G="255" B="255" />
 						<ambient R="255" G="255" B="255" />
@@ -75,7 +75,7 @@
 				<scale x="0.1" y="0.1" z="0.1"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_mercury.jpg" />
 				</model>
 			</models>
@@ -91,7 +91,7 @@
 				<scale x="0.17" y="0.17" z="0.17"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_venus_surface.jpg" />
 				</model>
 			</models>
@@ -107,7 +107,7 @@
 				<scale x="0.2" y="0.2" z="0.2"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_earth_daymap.jpg" />
 				</model>
 			</models>
@@ -120,7 +120,7 @@
 					<scale x="0.3" y="0.3" z="0.3"/>
 				</transform>
 				<models>
-					<model file="sphere.3d" >
+					<model file="sphere_nt.3d" >
 						<texture file = "2k_moon.jpg" />
 					</model>
 				</models>
@@ -137,7 +137,7 @@
 				<scale x="0.15" y="0.15" z="0.15"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_mars.jpg" />
 				</model>
 			</models>
@@ -153,7 +153,7 @@
 				<scale x="0.55" y="0.55" z="0.55"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_jupiter.jpg" />
 				</model>
 			</models>
@@ -169,7 +169,7 @@
 				<scale x="0.46" y="0.46" z="0.46"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_saturn.jpg" />
 				</model>
 			</models>
@@ -185,7 +185,7 @@
 				<scale x="0.39" y="0.39" z="0.39"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_uranus.jpg" />
 				</model>
 			</models>
@@ -200,12 +200,11 @@
 				<scale x="0.36" y="0.36" z="0.36"/>
 			</transform>
 			<models>
-				<model file="sphere.3d" >
+				<model file="sphere_nt.3d" >
 					<texture file = "2k_neptune.jpg" />
 				</model>
 			</models>
 		</group>
-
 
 	</group>
 </world>

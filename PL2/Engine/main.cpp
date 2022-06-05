@@ -4,11 +4,15 @@
 Group group = Group();
 Camera c;
 vector<Light> globalLights;
-float alfa = 0.0f, Beta = 0.0f, raio = 10.0f;
+float alpha = 0.0f, Beta = 0.0f, raio = 10.0f;
+GLfloat x;
+GLfloat y;
+GLfloat z;
 int livre = 0;
 int axis = 0;
 int lines = 1;
 int luz = 1;
+int trajectory = 0;
 
 void changeSize(int w, int h) {
 
@@ -424,95 +428,6 @@ void readXML(char *s){
 }
 
 
-void renderScene(void) {
-
-	// clear buffers
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// set the camera
-	glLoadIdentity();
-
-    //A posição inicial apresentada inicialmente a do xml,
-    //depois com a interação com o teclado, a câmara torna-se "livre"
-    GLfloat x = livre ? raio * cos(Beta) * sin(alfa) : c.getPosX();
-    GLfloat y = livre ? raio * sin(Beta) : c.getPosY();
-    GLfloat z = livre ? raio * cos(Beta) * cos(alfa) : c.getPosZ();
-
-
-	gluLookAt(x,y,z,
-		c.getLookAtX(), c.getLookAtY(), c.getLookAtZ(),
-		c.getUpX(),c.getUpY(), c.getUpZ());
-
-
-    if(axis){
-        glDisable(GL_LIGHTING);
-        glBegin(GL_LINES);
-
-        // X axis in red
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f(-100.0f, 0.0f, 0.0f);
-        glVertex3f(100.0f, 0.0f, 0.0f);
-
-        // Y Axis in Green
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f(0.0f, -100.0f, 0.0f);
-        glVertex3f(0.0f, 100.0f, 0.0f);
-
-        // Z Axis in Blue
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f(0.0f, 0.0f, -100.0f);
-        glVertex3f(0.0f, 0.0f, 100.0f);
-        glEnd();
-        glEnable(GL_LIGHTING);
-    }
-
-    glColor3f(1.0f,1.0f,1.0f);
-
-
-    //Lights
-    if(luz) {
-        glEnable(GL_LIGHTING);
-        for (int i = 0; i < globalLights.size(); i++) {
-
-            int GL_LightI = getLightI(i);
-
-            if (strcmp("point", globalLights[i].getType()) == 0) {
-
-                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
-
-            } else if (strcmp("directional", globalLights[i].getType()) == 0) {
-
-                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getDir());
-
-            } else if (strcmp("spot", globalLights[i].getType()) == 0) {
-                ;
-                const float cutoff = (const float) globalLights[i].getCutoff();
-                float dir[3];
-                dir[0] = globalLights[i].getDir()[0];
-                dir[1] = globalLights[i].getDir()[1];
-                dir[2] = globalLights[i].getDir()[2];
-
-                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
-                glLightfv(GL_LightI, GL_SPOT_DIRECTION, dir);
-                glLightfv(GL_LightI, GL_SPOT_CUTOFF, &cutoff);
-
-            }
-        }
-    }
-    else{
-        glDisable(GL_LIGHTING);
-    }
-
-    //desenhar aqui
-    glPolygonMode(GL_FRONT, lines ? GL_FILL : GL_LINE);
-
-    draw(group);
-
-	// End of frame
-    glutSwapBuffers();
-
-}
-
 //---------------------------- CATMULL-ROM ---------------------------------
 
 float prev_y[3] = { 0,-1,0 };
@@ -748,16 +663,106 @@ void draw(Group gr){
 }
 
 
+void renderScene(void) {
+
+    // clear buffers
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    // set the camera
+    glLoadIdentity();
+
+
+    gluLookAt(x,y,z,
+              c.getLookAtX(), c.getLookAtY(), c.getLookAtZ(),
+              c.getUpX(),c.getUpY(), c.getUpZ());
+
+    if(trajectory){
+        glDisable(GL_LIGHTING);
+        renderCatmullRomCurve();
+        glEnable(GL_LIGHTING);
+    }
+
+    if(axis){
+        glDisable(GL_LIGHTING);
+        glBegin(GL_LINES);
+
+        // X axis in red
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glVertex3f(-100.0f, 0.0f, 0.0f);
+        glVertex3f(100.0f, 0.0f, 0.0f);
+
+        // Y Axis in Green
+        glColor3f(0.0f, 1.0f, 0.0f);
+        glVertex3f(0.0f, -100.0f, 0.0f);
+        glVertex3f(0.0f, 100.0f, 0.0f);
+
+        // Z Axis in Blue
+        glColor3f(0.0f, 0.0f, 1.0f);
+        glVertex3f(0.0f, 0.0f, -100.0f);
+        glVertex3f(0.0f, 0.0f, 100.0f);
+        glEnd();
+        glEnable(GL_LIGHTING);
+    }
+
+    glColor3f(1.0f,1.0f,1.0f);
+
+
+    //Lights
+    if(luz) {
+        glEnable(GL_LIGHTING);
+        for (int i = 0; i < globalLights.size(); i++) {
+
+            int GL_LightI = getLightI(i);
+
+            if (strcmp("point", globalLights[i].getType()) == 0) {
+
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
+
+            } else if (strcmp("directional", globalLights[i].getType()) == 0) {
+
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getDir());
+
+            } else if (strcmp("spot", globalLights[i].getType()) == 0) {
+                ;
+                const float cutoff = (const float) globalLights[i].getCutoff();
+                float dir[3];
+                dir[0] = globalLights[i].getDir()[0];
+                dir[1] = globalLights[i].getDir()[1];
+                dir[2] = globalLights[i].getDir()[2];
+
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
+                glLightfv(GL_LightI, GL_SPOT_DIRECTION, dir);
+                glLightfv(GL_LightI, GL_SPOT_CUTOFF, &cutoff);
+
+            }
+        }
+    }
+    else{
+        glDisable(GL_LIGHTING);
+    }
+
+    //desenhar aqui
+    glPolygonMode(GL_FRONT, lines ? GL_FILL : GL_LINE);
+
+    draw(group);
+
+    // End of frame
+    glutSwapBuffers();
+
+
+}
+
+
 void processKeys(unsigned char key, int xx, int yy) {
 
     // put code to process regular keys in here
     switch (key) {
         case 'a':
-            alfa += 10.0 * M_PI/180;
+            alpha += 10.0 * M_PI/180;
             livre = 1;
             break;
         case 'd':
-            alfa -= 10.0 * M_PI / 180;
+            alpha -= 10.0 * M_PI / 180;
             livre = 1;
             break;
         case 's':
@@ -780,7 +785,12 @@ void processKeys(unsigned char key, int xx, int yy) {
             break;
         case 'r':
             livre=0;
-            raio=5;
+            x = c.getPosX();
+            y = c.getPosY();
+            z = c.getPosZ();
+            raio = sqrt(pow(c.getPosX(),2)+pow(c.getPosY(),2)+pow(c.getPosZ(),2));
+            Beta = asin(c.getPosY() / raio);
+            alpha = asin(c.getPosX()/(raio*cos(Beta)));
             break;
         case 'q':
             axis = !axis;
@@ -790,7 +800,15 @@ void processKeys(unsigned char key, int xx, int yy) {
         case 'e':
             luz = !luz;
             break;
+        case 'c':
+            trajectory = !trajectory;
+            break;
 
+    }
+    if(livre) {
+        x = raio * cos(Beta) * sin(alpha);
+        y = raio * sin(Beta);
+        z = raio * cos(Beta) * cos(alpha);
     }
     glutPostRedisplay();
 }
@@ -829,6 +847,15 @@ int main(int argc, char** argv) {
     ilOriginFunc(IL_ORIGIN_LOWER_LEFT);
 
     readXML(argv[1]);
+
+    x = c.getPosX();
+    y = c.getPosY();
+    z = c.getPosZ();
+
+    raio = sqrt(pow(c.getPosX(),2)+pow(c.getPosY(),2)+pow(c.getPosZ(),2));
+    Beta = asin(c.getPosY() / raio);
+    alpha = asin(c.getPosX()/(raio*cos(Beta)));
+
     group.loadGroupsVBO();
 
     glEnable(GL_DEPTH_TEST);
