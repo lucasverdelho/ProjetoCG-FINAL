@@ -44,7 +44,6 @@ void read3d(const char *s,Group *group_input,Solid solid){
     f >> sep;
     f >> reflections;
 
-    //Triangle triangulo;
     Point p1,p2,p3;
     while(i<=pontos){
 
