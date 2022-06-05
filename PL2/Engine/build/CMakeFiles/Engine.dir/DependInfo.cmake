@@ -1,23 +1,27 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "CXX"
   )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Camera.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Camera.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Colour.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Colour.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Group.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Light.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Light.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Point.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Rotate.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Rotate.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Scale.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Scale.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Solid.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Translate.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Translate.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Triangle.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/Triangle.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/main.cpp.o"
+  "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/tinyxml2/tinyxml2.cpp" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir/tinyxml2/tinyxml2.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Camera.cpp" "CMakeFiles/Engine.dir/Camera.cpp.o" "gcc" "CMakeFiles/Engine.dir/Camera.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Group.cpp" "CMakeFiles/Engine.dir/Group.cpp.o" "gcc" "CMakeFiles/Engine.dir/Group.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Point.cpp" "CMakeFiles/Engine.dir/Point.cpp.o" "gcc" "CMakeFiles/Engine.dir/Point.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Rotate.cpp" "CMakeFiles/Engine.dir/Rotate.cpp.o" "gcc" "CMakeFiles/Engine.dir/Rotate.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Scale.cpp" "CMakeFiles/Engine.dir/Scale.cpp.o" "gcc" "CMakeFiles/Engine.dir/Scale.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Solid.cpp" "CMakeFiles/Engine.dir/Solid.cpp.o" "gcc" "CMakeFiles/Engine.dir/Solid.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Translate.cpp" "CMakeFiles/Engine.dir/Translate.cpp.o" "gcc" "CMakeFiles/Engine.dir/Translate.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/Triangle.cpp" "CMakeFiles/Engine.dir/Triangle.cpp.o" "gcc" "CMakeFiles/Engine.dir/Triangle.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/main.cpp" "CMakeFiles/Engine.dir/main.cpp.o" "gcc" "CMakeFiles/Engine.dir/main.cpp.o.d"
-  "/home/diogo/3ºano/2ºSemestre/CG/CG-Project/PL2/Engine/tinyxml2/tinyxml2.cpp" "CMakeFiles/Engine.dir/tinyxml2/tinyxml2.cpp.o" "gcc" "CMakeFiles/Engine.dir/tinyxml2/tinyxml2.cpp.o.d"
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/include/IL"
   )
 
 # Targets to which this target links.

@@ -1,0 +1,142 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Camera.h
+iostream
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Colour.h
+tuple
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.cpp
+Group.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+Solid.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+Rotate.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Rotate.h
+Translate.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Translate.h
+Scale.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Scale.h
+stdio.h
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Light.h
+string.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/string.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Rotate.h
+Transformation.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Scale.h
+Transformation.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.cpp
+Solid.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+GL/glew.h
+-
+IL/il.h
+-
+Triangle.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Triangle.h
+Colour.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Colour.h
+string.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/string.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+typeinfo
+-
+GL/glut.h
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Translate.h
+Transformation.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+Point.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+vector
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Triangle.h
+iostream
+-
+vector
+-
+Point.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+GL/glut.h
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.cpp
+main.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.h
+vector
+-
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.h
+vector
+-
+iostream
+-
+fstream
+-
+math.h
+-
+Group.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+Camera.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Camera.h
+Light.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Light.h
+bits/stdc++.h
+-
+tinyxml2/tinyxml2.h
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/tinyxml2/tinyxml2.h
+
+/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/tinyxml2/tinyxml2.h
+ctype.h
+-
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+stddef.h
+-
+cctype
+-
+climits
+-
+cstdio
+-
+cstdlib
+-
+cstring
+-
+stdint.h
+-
+android/log.h
+-
+assert.h
+-
+
