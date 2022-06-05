@@ -40,6 +40,10 @@ point reverseZ(point point)
 
 point normalizeV(point p)
 {
+    if(p.x == 0 && p.y == 0 && p.z == 0)
+    {
+        return p;
+    }
     float norm = sqrt(p.x * p.x + p.y * p.y + p.z * p.z);
     p.x /= norm;
     p.y /= norm;
@@ -537,6 +541,7 @@ point crossProduct(point vector1, point vector2)
     ans.x = vector1.y * vector2.z - vector1.z * vector2.y;
     ans.y = vector1.z * vector2.x - vector1.x * vector2.z;
     ans.z = vector1.x * vector2.y - vector1.y * vector2.x;
+
     return ans;
 }
 
@@ -649,6 +654,10 @@ vector<point> buildPatch(string inputfile, int tesselation)
                 point v6 = {p2.x - p3.x, p2.y - p3.y, p2.z - p3.z};
                 point normal3 = crossProduct(v5, v6);
 
+                normal1 = normalizeV(normal1);
+                normal2 = normalizeV(normal2);
+                normal3 = normalizeV(normal3);
+
                 // Adicionar as normais em ordem de cada ponto ao vetor de resposta
                 orderedNormals.push_back(normal1);
                 orderedNormals.push_back(normal2);
@@ -686,6 +695,10 @@ vector<point> buildPatch(string inputfile, int tesselation)
                 point v11 = {p4.x - p6.x, p4.y - p6.y, p4.z - p6.z};
                 point v12 = {p5.x - p6.x, p5.y - p6.y, p5.z - p6.z};
                 point normal6 = crossProduct(v11, v12);
+
+                normal4 = normalizeV(normal4);
+                normal5 = normalizeV(normal5);
+                normal6 = normalizeV(normal6);
 
                 orderedNormals.push_back(normal4);
                 orderedNormals.push_back(normal5);
