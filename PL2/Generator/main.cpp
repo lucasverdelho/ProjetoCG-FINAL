@@ -66,6 +66,8 @@ bool buildPlane(float length, float divisions, const char *filename)
     out.open(strcat(pasta, filename));
     out << ans;
 
+
+
     point p1, p2, p3, p4;
     for (int i = 0; i < divisions; i++)
     {
@@ -102,6 +104,9 @@ bool buildPlane(float length, float divisions, const char *filename)
 
             triangleBuilder(p1, normalBase, text1, p4, normalBase, text4, p2, normalBase, text2, out);
             triangleBuilder(p2, normalBase, text2, p4, normalBase, text4, p3, normalBase, text3, out);
+
+            // triangleBuilder(p1, normalBase, text1, p2, normalBase, text2, p4, normalBase, text4, out);
+            // triangleBuilder(p2, normalBase, text2,  p3, normalBase, text3, p4, normalBase, text4, out);
         }
     }
     out.close();
@@ -127,6 +132,7 @@ bool buildCube(float length, float divisions, const char *filename)
     out.open(strcat(pasta, filename));
     out << ans;
 
+    point p1, p2, p3, p4, p5, p6, p7, p8;
     // Criar os pontos
     for (int i = 0; i < divisions; i++)
     {
@@ -739,11 +745,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[10] = "cube.3d";
+    char namefile2[10] = "plane.3d";
     // buildSphere(1, 10, 10, namefile2);
     // buildCone(1, 3, 8, 6, namefile2);
-    // buildPlane(3,4, namefile2);
-    buildCube(3, 4, namefile2);
+    buildPlane(3,4, namefile2);
+    // buildCube(3, 4, namefile2);
     const char namefile[35] = "../test_files_phase_3/teapot.patch";
     buildPatch(namefile, 10);
 }
