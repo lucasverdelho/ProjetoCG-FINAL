@@ -709,7 +709,7 @@ vector<point> buildPatch(string inputfile, int tesselation)
     int nPoints = orderedPoints.size();
     printf("%d\n", nPoints);
     ofstream out;
-    out.open("../Models/bezier.3d");
+    out.open("../Models/bezier_nt.3d");
     out << nPoints << ",l\n";
     for (int i = 0; i < nPoints + 1; i++)
     {
@@ -742,11 +742,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[10] = "cube.3d";
+    // char namefile2[20] = "sphere_nt.3d";
     // buildSphere(1, 10, 10, namefile2);
-    // buildCone(1, 3, 8, 6, namefile2);
-    // buildPlane(3, 4, namefile2);
-    buildCube(3, 4, namefile2);
+    // buildCone(1, 2, 10, 10, namefile2);
+    // buildPlane(1, 3, namefile2);
+    // buildCube(2, 3, namefile2);
     const char namefile[35] = "../test_files_phase_3/teapot.patch";
     buildPatch(namefile, 10);
 }
