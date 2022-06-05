@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine"
+CMAKE_SOURCE_DIR = "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build"
+CMAKE_BINARY_DIR = "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles" "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles" "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -107,7 +107,7 @@ preinstall/fast:
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -P "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -504,7 +504,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

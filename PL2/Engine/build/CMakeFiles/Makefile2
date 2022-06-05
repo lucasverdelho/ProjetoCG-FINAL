@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine"
+CMAKE_SOURCE_DIR = "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build"
+CMAKE_BINARY_DIR = "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/Engine.dir/clean
 CMakeFiles/Engine.dir/all:
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/depend
 	$(MAKE) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target Engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles" --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target Engine"
 .PHONY : CMakeFiles/Engine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Engine.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles" 0
 .PHONY : CMakeFiles/Engine.dir/rule
 
 # Convenience name for target.
@@ -101,7 +101,7 @@ CMakeFiles/Engine.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -P "/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
+	$(CMAKE_COMMAND) -P "/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/VerifyGlobs.cmake"
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
