@@ -322,16 +322,16 @@ bool buildCone(float radius, float height, int slices, int stacks, char *filenam
 
             // Textures
             float tx1 = (float) j  / slices;
-            float ty1 = 1.0f - ((float) i / stacks);
+            float ty1 = (float) i / stacks;
 
             float tx2 = (float) j / slices;
-            float ty2 = 1.0f - (float) (i + 1) / stacks;
+            float ty2 = (float) (i + 1) / stacks;
 
             float tx3 = (float) (j + 1) / slices;
-            float ty3 = 1.0f - (float) (i + 1) / stacks;
+            float ty3 = (float) (i + 1) / stacks;
 
             float tx4 = (float)(j + 1) / slices;
-            float ty4 = 1.0f - (float) i / stacks;
+            float ty4 = (float) i / stacks;
 
             string point1 = to_string(pontoStack11x) + "," + to_string(pontoStack11y) + "," + to_string(pontoStack11z) + ",";
             string point1Norm = to_string(p1Norm.x) + "," + to_string(p1Norm.y) + "," + to_string(p1Norm.z) + ",";
