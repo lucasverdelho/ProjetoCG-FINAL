@@ -40,7 +40,7 @@ point reverseZ(point point)
 
 point normalizeV(point p)
 {
-    if(p.x == 0 && p.y == 0 && p.z == 0)
+    if (p.x == 0 && p.y == 0 && p.z == 0)
     {
         return p;
     }
@@ -383,7 +383,6 @@ bool buildSphere(float radius, int slices, int stacks, char *filename)
 
     for (int i = 0; i < stacks; i++)
     {
-
         stackStep = (M_PI / 2) - i * beta;
         stackStep2 = (M_PI / 2) - (i + 1) * beta;
 
@@ -417,17 +416,17 @@ bool buildSphere(float radius, int slices, int stacks, char *filename)
             point normal4 = normalizeV({x4, y4, z4});
 
             // Textures
-            float tx1 = j / slices;
-            float ty1 = i / stacks;
+            float tx1 = (float) j  / slices;
+            float ty1 = 1.0f - ((float) i / stacks);
 
-            float tx2 = j / slices;
-            float ty2 = (i + 1) / stacks;
+            float tx2 = (float) j / slices;
+            float ty2 = 1.0f - (float) (i + 1) / stacks;
 
-            float tx3 = (j + 1) / slices;
-            float ty3 = (i + 1) / stacks;
+            float tx3 = (float) (j + 1) / slices;
+            float ty3 = 1.0f - (float) (i + 1) / stacks;
 
-            float tx4 = (j + 1) / slices;
-            float ty4 = i / stacks;
+            float tx4 = (float)(j + 1) / slices;
+            float ty4 = 1.0f - (float) i / stacks;
 
             if (i != 0)
             {
@@ -669,9 +668,11 @@ vector<point> buildPatch(string inputfile, int tesselation)
                 point texture3 = {x2, y1};
                 point texture4 = {x2, y2};
 
+                orderedTexture.push_back(texture2);
+                orderedTexture.push_back(texture1);
+                orderedTexture.push_back(texture3);
                 orderedTexture.push_back(texture1);
                 orderedTexture.push_back(texture2);
-                orderedTexture.push_back(texture3);
                 orderedTexture.push_back(texture4);
 
                 // Segundo Triangulo
@@ -703,17 +704,6 @@ vector<point> buildPatch(string inputfile, int tesselation)
                 orderedNormals.push_back(normal4);
                 orderedNormals.push_back(normal5);
                 orderedNormals.push_back(normal6);
-
-                // Adicionar as coordenadas das texturas em ordem de cada ponto ao vetor de resposta
-                point texture5 = {x1, y1};
-                point texture6 = {x2, y2};
-                point texture7 = {x2, y1};
-                point texture8 = {x1, y2};
-
-                orderedTexture.push_back(texture5);
-                orderedTexture.push_back(texture6);
-                orderedTexture.push_back(texture7);
-                orderedTexture.push_back(texture8);
             }
         }
     }
@@ -755,11 +745,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    // char namefile2[20] = "sphere_nt.3d";
-    // buildSphere(1, 10, 10, namefile2);
+    char namefile2[20] = "sphere_nt.3d";
+    buildSphere(1, 10, 10, namefile2);
     // buildCone(1, 2, 10, 10, namefile2);
     // buildPlane(1, 3, namefile2);
     // buildCube(2, 3, namefile2);
-    const char namefile[35] = "../test_files_phase_3/teapot.patch";
-    buildPatch(namefile, 10);
+    // const char namefile[35] = "../test_files_phase_3/teapot.patch";
+    // buildPatch(namefile, 10);
 }
