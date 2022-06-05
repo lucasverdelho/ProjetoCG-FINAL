@@ -8,6 +8,7 @@ float alfa = 0.0f, Beta = 0.0f, raio = 10.0f;
 int livre = 0;
 int axis = 0;
 int lines = 1;
+int luz = 1;
 
 void changeSize(int w, int h) {
 
@@ -471,47 +472,44 @@ void renderScene(void) {
 
 
     //Lights
-    for(int i=0;i<globalLights.size();i++){
+    if(luz) {
+        glEnable(GL_LIGHTING);
+        for (int i = 0; i < globalLights.size(); i++) {
 
-        int GL_LightI = getLightI(i);
-//        float dark[4] = {0.2, 0.2, 0.2, 1.0};
-//        float white[4] = {1.0, 1.0, 1.0, 1.0};
-//
-//        glLightfv(GL_LightI, GL_AMBIENT, dark);
-//        glLightfv(GL_LightI, GL_DIFFUSE, white);
-//        glLightfv(GL_LightI, GL_SPECULAR, white);
+            int GL_LightI = getLightI(i);
 
-        if(strcmp("point",globalLights[i].getType())==0) {
+            if (strcmp("point", globalLights[i].getType()) == 0) {
 
-            glLightfv(GL_LightI, GL_POSITION,globalLights[i].getPos());
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
 
-        } else if(strcmp("directional",globalLights[i].getType())==0){
+            } else if (strcmp("directional", globalLights[i].getType()) == 0) {
 
-            glLightfv(GL_LightI, GL_POSITION,globalLights[i].getDir());
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getDir());
 
-        } else if(strcmp("spot",globalLights[i].getType())==0){
+            } else if (strcmp("spot", globalLights[i].getType()) == 0) {
 
-            const float cutoff = (const float) globalLights[i].getCutoff();
-            float dir[3];
-            dir[0] = globalLights[i].getDir()[0];
-            dir[1] = globalLights[i].getDir()[1];
-            dir[2] = globalLights[i].getDir()[2];
+                const float cutoff = (const float) globalLights[i].getCutoff();
+                float dir[3];
+                dir[0] = globalLights[i].getDir()[0];
+                dir[1] = globalLights[i].getDir()[1];
+                dir[2] = globalLights[i].getDir()[2];
 
-            glLightfv(GL_LightI, GL_POSITION,globalLights[i].getPos());
-            glLightfv(GL_LightI, GL_SPOT_DIRECTION,dir);
-            glLightfv(GL_LightI, GL_SPOT_CUTOFF,&cutoff);
+                glLightfv(GL_LightI, GL_POSITION, globalLights[i].getPos());
+                glLightfv(GL_LightI, GL_SPOT_DIRECTION, dir);
+                glLightfv(GL_LightI, GL_SPOT_CUTOFF, &cutoff);
+
+            }
 
         }
-
+    }
+    else{
+        glDisable(GL_LIGHTING);
     }
 
     //desenhar aqui
     glPolygonMode(GL_FRONT, lines ? GL_FILL : GL_LINE);
 
-    //glClearColor(0.0f,0.0f,0.0f,0.0f);
     draw(group);
-    //glDisableClientState(GL_VERTEX_ARRAY);
-    //glDisableClientState(GL_NORMAL_ARRAY);
 
 	// End of frame
     glutSwapBuffers();
@@ -792,6 +790,8 @@ void processKeys(unsigned char key, int xx, int yy) {
             break;
         case 'l':
             lines = !lines;
+        case 'e':
+            luz = !luz;
             break;
 
     }
@@ -845,8 +845,6 @@ int main(int argc, char** argv) {
 
     glEnable(GL_TEXTURE_2D);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
-    //glEnable(GL_COLOR_MATERIAL);
-
 
     //float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
