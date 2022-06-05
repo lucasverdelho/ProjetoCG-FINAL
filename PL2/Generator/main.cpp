@@ -53,7 +53,7 @@ bool buildPlane(float length, float divisions, const char *filename)
     string ans = "";
 
     // Econtrar o numero de pontos total
-    int totalPoints = 3*(divisions + 1) * (divisions + 1);
+    int totalPoints = 3 * divisions * divisions * 2;
     ans = to_string(totalPoints) + ",l\n";
 
     // Distancia entre cada ponto
@@ -66,8 +66,6 @@ bool buildPlane(float length, float divisions, const char *filename)
     out.open(strcat(pasta, filename));
     out << ans;
 
-
-
     point p1, p2, p3, p4;
     for (int i = 0; i < divisions; i++)
     {
@@ -76,21 +74,20 @@ bool buildPlane(float length, float divisions, const char *filename)
         {
             // out << "\n--- DIVISAO ---" + to_string(j) + "\n\n";
             p1 = point({-start + i * divisory,   // x
-                              0,                       // y
-                              -start + j * divisory}); // z
+                        0,                       // y
+                        -start + j * divisory}); // z
 
             p2 = point({-start + (i + 1) * divisory,
-                              0,
-                              -start + j * divisory});
+                        0,
+                        -start + j * divisory});
 
             p3 = point({-start + (i + 1) * divisory,
-                              0,
-                              -start + (j + 1) * divisory});
+                        0,
+                        -start + (j + 1) * divisory});
 
             p4 = point({-start + i * divisory, 0,
-                              -start + (j + 1) * divisory});
+                        -start + (j + 1) * divisory});
 
-        
             // Normal Vector
             point normalBase = point({0, 1, 0});
 
@@ -119,7 +116,7 @@ bool buildCube(float length, float divisions, const char *filename)
     string ans = "";
 
     // Econtrar o numero de pontos total
-    int npontos = 6 * (divisions+1) * (divisions+1);
+    int npontos = 6 * divisions * divisions * 2 * 3;
     ans = to_string(npontos) + ",l\n";
 
     // Distancia entre cada ponto
@@ -745,11 +742,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[10] = "plane.3d";
+    char namefile2[10] = "cube.3d";
     // buildSphere(1, 10, 10, namefile2);
     // buildCone(1, 3, 8, 6, namefile2);
-    buildPlane(3,4, namefile2);
-    // buildCube(3, 4, namefile2);
+    // buildPlane(3, 4, namefile2);
+    buildCube(3, 4, namefile2);
     const char namefile[35] = "../test_files_phase_3/teapot.patch";
     buildPatch(namefile, 10);
 }
