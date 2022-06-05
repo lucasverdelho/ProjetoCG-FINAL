@@ -53,12 +53,11 @@ bool buildPlane(float length, float divisions, const char *filename)
     string ans = "";
 
     // Econtrar o numero de pontos total
-    divisions += 1;
-    int npontos = divisions * divisions;
-    ans = to_string(npontos) + ",l\n";
+    int totalPoints = 3*(divisions + 1) * (divisions + 1);
+    ans = to_string(totalPoints) + ",l\n";
 
     // Distancia entre cada ponto
-    float divisory = length / (divisions - 1);
+    float divisory = length / (divisions);
 
     float start = length / 2;
 
@@ -67,34 +66,37 @@ bool buildPlane(float length, float divisions, const char *filename)
     out.open(strcat(pasta, filename));
     out << ans;
 
+    point p1, p2, p3, p4;
     for (int i = 0; i < divisions; i++)
     {
+        // out << "--- FILA ---" + to_string(i) + "\n";
         for (int j = 0; j < divisions; j++)
         {
-
-            point p1 = point({-start + i * divisory,   // x
-                              0,                  // y
+            // out << "\n--- DIVISAO ---" + to_string(j) + "\n\n";
+            p1 = point({-start + i * divisory,   // x
+                              0,                       // y
                               -start + j * divisory}); // z
 
-            point p2 = point({-start + (i + 1) * divisory,
+            p2 = point({-start + (i + 1) * divisory,
                               0,
                               -start + j * divisory});
 
-            point p3 = point({-start + (i + 1) * divisory,
+            p3 = point({-start + (i + 1) * divisory,
                               0,
                               -start + (j + 1) * divisory});
 
-            point p4 = point({-start + i * divisory, 0,
+            p4 = point({-start + i * divisory, 0,
                               -start + (j + 1) * divisory});
 
+        
             // Normal Vector
             point normalBase = point({0, 1, 0});
 
             // Textures
-            point text1 = point({(float)i / (divisions - 1), (float)j / (divisions - 1), 0});
-            point text2 = point({(float)(i + 1) / (divisions - 1), (float)j / (divisions - 1), 0});
-            point text3 = point({(float)(i + 1) / (divisions - 1), (float)(j + 1) / (divisions - 1), 0});
-            point text4 = point({(float)i / (divisions - 1), (float)(j + 1) / (divisions - 1), 0});
+            point text1 = point({(float)i / divisions, (float)j / divisions, 0});
+            point text2 = point({(float)(i + 1) / divisions, (float)j / divisions, 0});
+            point text3 = point({(float)(i + 1) / divisions, (float)(j + 1) / divisions, 0});
+            point text4 = point({(float)i / divisions, (float)(j + 1) / divisions, 0});
 
             // Construir os Triangulos
 
@@ -112,12 +114,11 @@ bool buildCube(float length, float divisions, const char *filename)
     string ans = "";
 
     // Econtrar o numero de pontos total
-    divisions += 1;
-    int npontos = 6 * divisions * divisions;
+    int npontos = 6 * (divisions+1) * (divisions+1);
     ans = to_string(npontos) + ",l\n";
 
     // Distancia entre cada ponto
-    float divisory = length / (divisions - 1);
+    float divisory = length / (divisions);
 
     float start = length / 2;
 
@@ -154,10 +155,10 @@ bool buildCube(float length, float divisions, const char *filename)
             point normalBase = point({0, -1, 0});
 
             // Textures
-            point text1 = point({(float)i / (divisions - 1), (float)j / (divisions - 1), 0});
-            point text2 = point({(float)(i + 1) / (divisions - 1), (float)j / (divisions - 1), 0});
-            point text3 = point({(float)(i + 1) / (divisions - 1), (float)(j + 1) / (divisions - 1), 0});
-            point text4 = point({(float)i / (divisions - 1), (float)(j + 1) / (divisions - 1), 0});
+            point text1 = point({(float)i / divisions, (float)j / divisions, 0});
+            point text2 = point({(float)(i + 1) / divisions, (float)j / divisions, 0});
+            point text3 = point({(float)(i + 1) / divisions, (float)(j + 1) / divisions, 0});
+            point text4 = point({(float)i / divisions, (float)(j + 1) / divisions, 0});
 
             // Construir os Triangulos
 
@@ -196,8 +197,8 @@ bool buildCube(float length, float divisions, const char *filename)
 
             point normalFrente = point({0, 0, 1});
 
-            triangleBuilder(p1, normalFrente, text1, p2, normalFrente, text2, p4, normalFrente, text4, out);
-            triangleBuilder(p2, normalFrente, text2, p3, normalFrente, text3, p4, normalFrente, text4, out);
+            triangleBuilder(p1, normalFrente, text1, p4, normalFrente, text4, p2, normalFrente, text2, out);
+            triangleBuilder(p2, normalFrente, text2, p4, normalFrente, text4, p3, normalFrente, text3, out);
 
             // -------------- TRAS -------------- //
 
@@ -208,8 +209,8 @@ bool buildCube(float length, float divisions, const char *filename)
 
             point normalTras = reverseZ(normalFrente);
 
-            triangleBuilder(p5, normalTras, text1, p8, normalTras, text4, p6, normalTras, text2, out);
-            triangleBuilder(p6, normalTras, text2, p8, normalTras, text4, p7, normalTras, text3, out);
+            triangleBuilder(p5, normalTras, text1, p6, normalTras, text2, p8, normalTras, text4, out);
+            triangleBuilder(p6, normalTras, text2, p7, normalTras, text3, p8, normalTras, text4, out);
 
             // -------------- ESQUERDA -------------- //
 
@@ -346,7 +347,7 @@ bool buildCone(float radius, float height, int slices, int stacks, char *filenam
                 ans = ans + point3 + point3Norm + texture3 + point1 + point1Norm + texture1 + point2 + point2Norm + texture2 + point2 + point2Norm + texture2 + point4 + point4Norm + texture4 + point3 + point3Norm + texture3;
             }
             else
-                // Triangulo da ultima stack
+                // Triangulo da ultima stack - o point 3 e o point 4 coincidem, sendo correspondentes ao vertice do topo do cone
                 ans = ans + point3 + "0,1,0," + texture3 + point1 + point1Norm + texture1 + point2 + point2Norm + texture2;
         }
     }
@@ -738,11 +739,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[10] = "cone.3d";
+    char namefile2[10] = "cube.3d";
     // buildSphere(1, 10, 10, namefile2);
-    buildCone(1, 3, 8, 6, namefile2);
+    // buildCone(1, 3, 8, 6, namefile2);
     // buildPlane(3,4, namefile2);
-    // buildCube(3, 3, namefile2);
+    buildCube(3, 4, namefile2);
     const char namefile[35] = "../test_files_phase_3/teapot.patch";
     buildPatch(namefile, 10);
 }
