@@ -140,7 +140,6 @@ void readTransformation(XMLElement *transformation,Group *group_input){
                 group_input->addTranslation(t);
             }
 
-            //Fase 3
             else if(tr->FindAttribute("time")) {
 
                 tr->QueryDoubleAttribute("time", &time);
@@ -815,6 +814,8 @@ void processKeys(unsigned char key, int xx, int yy) {
 
 
 int main(int argc, char** argv) {
+
+    printf("Move:'w','a','s','d'\nZoom in/out:'+'/'-'\nReset Camera:'r'\nToggle Axis:'q'\nToggle Lines:'l'\nToggle Lights:'e'\nToggle Catmull-Rom:'c'");
 
     glutInit(&argc, argv);
 
