@@ -320,21 +320,34 @@ bool buildCone(float radius, float height, int slices, int stacks, char *filenam
             point p3Norm = normalizeV({pontoStack23x, dsup, pontoStack23z});
             point p4Norm = normalizeV({pontoStack24x, dsup, pontoStack24z});
 
+            // Textures
+            float tx1 = (float) j  / slices;
+            float ty1 = 1.0f - ((float) i / stacks);
+
+            float tx2 = (float) j / slices;
+            float ty2 = 1.0f - (float) (i + 1) / stacks;
+
+            float tx3 = (float) (j + 1) / slices;
+            float ty3 = 1.0f - (float) (i + 1) / stacks;
+
+            float tx4 = (float)(j + 1) / slices;
+            float ty4 = 1.0f - (float) i / stacks;
+
             string point1 = to_string(pontoStack11x) + "," + to_string(pontoStack11y) + "," + to_string(pontoStack11z) + ",";
             string point1Norm = to_string(p1Norm.x) + "," + to_string(p1Norm.y) + "," + to_string(p1Norm.z) + ",";
-            string texture1 = "0,0\n";
+            string texture1 = to_string(tx1) + "," + to_string(ty1) + "\n";
 
             string point2 = to_string(pontoStack12x) + "," + to_string(pontoStack12y) + "," + to_string(pontoStack12z) + ",";
             string point2Norm = to_string(p2Norm.x) + "," + to_string(p2Norm.y) + "," + to_string(p2Norm.z) + ",";
-            string texture2 = "0,0\n";
+            string texture2 = to_string(tx2) + "," + to_string(ty2) + "\n";
 
             string point3 = to_string(pontoStack23x) + "," + to_string(pontoStack23y) + "," + to_string(pontoStack23z) + ",";
             string point3Norm = to_string(p3Norm.x) + "," + to_string(p3Norm.y) + "," + to_string(p3Norm.z) + ",";
-            string texture3 = "0,0\n";
+            string texture3 = to_string(tx3) + "," + to_string(ty3) + "\n";
 
             string point4 = to_string(pontoStack24x) + "," + to_string(pontoStack24y) + "," + to_string(pontoStack24z) + ",";
             string point4Norm = to_string(p4Norm.x) + "," + to_string(p4Norm.y) + "," + to_string(p4Norm.z) + ",";
-            string texture4 = "0,0\n";
+            string texture4 = to_string(tx4) + "," + to_string(ty4) + "\n";
 
             if (i == 0)
             {
@@ -745,9 +758,9 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[20] = "sphere_nt.3d";
-    buildSphere(1, 10, 10, namefile2);
-    // buildCone(1, 2, 10, 10, namefile2);
+    char namefile2[20] = "cone_nt.3d";
+    // buildSphere(1, 10, 10, namefile2);
+    buildCone(1, 2, 10, 10, namefile2);
     // buildPlane(1, 3, namefile2);
     // buildCube(2, 3, namefile2);
     // const char namefile[35] = "../test_files_phase_3/teapot.patch";
