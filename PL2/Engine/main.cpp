@@ -223,7 +223,6 @@ void readModels(XMLElement *models,Group *group_input){
 
             RGBs->QueryFloatAttribute("value",&shininess);
 
-
             Colour colourModel = Colour(rgb[0][0],rgb[0][1],rgb[0][2],rgb[1][0],
                                 rgb[1][1],rgb[1][2],rgb[2][0],rgb[2][1],
                                 rgb[2][2],rgb[3][0],rgb[3][1],rgb[3][2],shininess);
@@ -498,7 +497,6 @@ void renderScene(void) {
                 glLightfv(GL_LightI, GL_SPOT_CUTOFF, &cutoff);
 
             }
-
         }
     }
     else{
@@ -822,6 +820,7 @@ int main(int argc, char** argv) {
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
+    //glEnable(GL_COLOR_MATERIAL);
 
     glEnable(GL_RESCALE_NORMAL);
 
@@ -847,8 +846,6 @@ int main(int argc, char** argv) {
 
     float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
-
-    //group.print();
 
     // enter GLUT's main cycle
     glutMainLoop();
