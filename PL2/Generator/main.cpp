@@ -740,27 +740,31 @@ vector<point> buildPatch(string inputfile, int tesselation)
 
 int main(int argc, char **argv)
 {
-    // char *objeto = argv[1];
+    char *objeto = argv[1];
 
-    // if (strcmp(objeto, "cone") == 0)
-    // {
-    //     buildCone(atof(argv[2]), atof(argv[3]), atoi(argv[4]), atoi(argv[5]), argv[6]);
-    // }
-    // else if (strcmp(objeto, "sphere") == 0)
-    // {
-    //     buildSphere(atof(argv[2]), atoi(argv[3]), atoi(argv[4]), argv[5]);
-    // }
-    // else if (strcmp(objeto, "box") == 0)
-    // {
-    //     buildCube(atof(argv[2]), atof(argv[3]), argv[4]);
-    // }
-    // else
-    // {
-    //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
-    // }
-    char namefile2[20] = "cone_nt.3d";
+    if (strcmp(objeto, "cone") == 0)
+    {
+        buildCone(atof(argv[2]), atof(argv[3]), atoi(argv[4]), atoi(argv[5]), argv[6]);
+    }
+    else if (strcmp(objeto, "sphere") == 0)
+    {
+        buildSphere(atof(argv[2]), atoi(argv[3]), atoi(argv[4]), argv[5]);
+    }
+    else if (strcmp(objeto, "box") == 0)
+    {
+        buildCube(atof(argv[2]), atof(argv[3]), argv[4]);
+    }
+    else if (strcmp(objeto, "plane") == 0)
+    {
+        buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
+    }
+    else if (strcmp(objeto, "bezier") == 0)
+    {
+
+    }
+    //char namefile2[20] = "cone_nt.3d";
     // buildSphere(1, 10, 10, namefile2);
-    buildCone(1, 2, 10, 10, namefile2);
+    //buildCone(1, 2, 10, 10, namefile2);
     // buildPlane(1, 3, namefile2);
     // buildCube(2, 3, namefile2);
     // const char namefile[35] = "../test_files_phase_3/teapot.patch";
