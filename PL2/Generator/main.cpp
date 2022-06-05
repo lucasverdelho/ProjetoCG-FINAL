@@ -332,8 +332,8 @@ bool buildCone(float radius, float height, int slices, int stacks, char *filenam
             {
                 // Construir os triangulos adjacentes a base e o triangulo que contem
                 // Constroi tambem o triangulo que contem os pontos na stack inferior e o centro
-                string base = "0.000000,0.000000,0.000000";
-                string baseNorm = "0.000000,-1.000000,0.000000";
+                string base = "0.000000,0.000000,0.000000,";
+                string baseNorm = "0.000000,-1.000000,0.000000,";
                 string textureBase = "0,0\n";
 
                 ans = ans + point3 + point3Norm + texture3 + point1 + point1Norm + texture1 + point2 + point2Norm + texture2 + point2 + point2Norm + texture2 + point4 + point4Norm + texture4 + point3 + point3Norm + texture3;
@@ -347,7 +347,7 @@ bool buildCone(float radius, float height, int slices, int stacks, char *filenam
             }
             else
                 // Triangulo da ultima stack
-                ans = ans + point3 + point3Norm + texture3 + point1 + point1Norm + texture1 + point2 + point2Norm + texture2;
+                ans = ans + point3 + "0,1,0," + texture3 + point1 + point1Norm + texture1 + point2 + point2Norm + texture2;
         }
     }
 
@@ -738,11 +738,11 @@ int main(int argc, char **argv)
     // {
     //     buildPlane(atof(argv[2]), atof(argv[3]), argv[4]);
     // }
-    char namefile2[10] = "cube.3d";
+    char namefile2[10] = "cone.3d";
     // buildSphere(1, 10, 10, namefile2);
-    // buildCone(1, 3, 8, 6, namefile2);
+    buildCone(1, 3, 8, 6, namefile2);
     // buildPlane(3,4, namefile2);
-    buildCube(3, 3, namefile2);
+    // buildCube(3, 3, namefile2);
     const char namefile[35] = "../test_files_phase_3/teapot.patch";
     buildPatch(namefile, 10);
 }
