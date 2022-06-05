@@ -1,3 +1,3 @@
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/rebuild_cache.dir
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/edit_cache.dir
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/build/CMakeFiles/Engine.dir
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/rebuild_cache.dir
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/edit_cache.dir
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/build/CMakeFiles/Engine.dir

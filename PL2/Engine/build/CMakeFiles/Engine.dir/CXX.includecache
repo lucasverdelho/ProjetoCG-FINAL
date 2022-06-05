@@ -6,91 +6,123 @@
 
 #IncludeRegexTransform: 
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Camera.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Camera.cpp
+Camera.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Camera.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Camera.h
 iostream
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Colour.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Colour.cpp
+Colour.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Colour.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Colour.h
 tuple
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.cpp
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Group.cpp
 Group.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Group.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Group.h
 Solid.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Solid.h
 Rotate.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Rotate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Rotate.h
 Translate.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Translate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Translate.h
 Scale.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Scale.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Scale.h
 stdio.h
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Light.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Light.cpp
+Light.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Light.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Light.h
 string.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/string.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/string.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Point.cpp
+Point.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Point.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Rotate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Point.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Rotate.cpp
+Rotate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Rotate.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Rotate.h
 Transformation.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Transformation.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Scale.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Scale.cpp
+Scale.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Scale.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Scale.h
 Transformation.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Transformation.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.cpp
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Solid.cpp
 Solid.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Solid.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Solid.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Solid.h
 GL/glew.h
 -
 IL/il.h
 -
 Triangle.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Triangle.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Triangle.h
 Colour.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Colour.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Colour.h
 string.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/string.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/string.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Transformation.h
 typeinfo
 -
 GL/glut.h
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Translate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Translate.cpp
+Translate.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Translate.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Translate.h
 Transformation.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Transformation.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Transformation.h
 Point.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Point.h
 vector
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Triangle.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Triangle.cpp
+Triangle.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Triangle.h
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Triangle.h
 iostream
 -
 vector
 -
 Point.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Point.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Point.h
 GL/glut.h
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.cpp
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/main.cpp
 main.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/main.h
 vector
 -
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/main.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/main.h
 vector
 -
 iostream
@@ -100,17 +132,31 @@ fstream
 math.h
 -
 Group.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Group.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Group.h
 Camera.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Camera.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Camera.h
 Light.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/Light.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/Light.h
 bits/stdc++.h
 -
 tinyxml2/tinyxml2.h
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/tinyxml2/tinyxml2.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/tinyxml2/tinyxml2.h
 
-/home/ubuntu/Downloads/ProjetoCG FINAL/PL2/Engine/tinyxml2/tinyxml2.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/tinyxml2/tinyxml2.cpp
+tinyxml2.h
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/tinyxml2/tinyxml2.h
+new
+-
+stddef.h
+-
+stdarg.h
+-
+cstddef
+-
+cstdarg
+-
+
+/home/lv/CG PROJECT/ProjetoCG-FINAL/PL2/Engine/tinyxml2/tinyxml2.h
 ctype.h
 -
 limits.h
