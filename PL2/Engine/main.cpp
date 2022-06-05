@@ -845,9 +845,8 @@ int main(int argc, char** argv) {
     glEnable(GL_TEXTURE_2D);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
 
-    //float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-    //glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
-
+    float amb[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
 
     //group.print();
 
