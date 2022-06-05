@@ -201,7 +201,7 @@ void readModels(XMLElement *models,Group *group_input){
         const char *textureFile;
         model->QueryStringAttribute("file",&file);
         char p[128] = "../../Models/";
-        char textureP[128] = "../../test_files_phase_4/";
+        char textureP[128] = "../../Texturas/";
         char *texturePath;
         char *pathM = strcat(p, (char *) file);
 
@@ -230,11 +230,19 @@ void readModels(XMLElement *models,Group *group_input){
             solid.addColour(colourModel);
 
         }
+        //Default color
+        else{
+            Colour colourModelDefault = Colour(200.0f/255.0f,200.0f/255.0f,200.0f/255.0f,
+                                        50.0f/255.0f,50.0f/255.0f,50.0f/255.0f,0.0f,
+                                        0.0f,0.0f,0.0f,0.0f,0.0f,0.0f);
+            solid.addColour(colourModelDefault);
+        }
 
-        XMLElement *texture = models->FirstChildElement("texture");
+
+        XMLElement *texture = model->FirstChildElement("texture");
         if(texture){
 
-            texture->QueryStringAttribute("texture",&textureFile);
+            texture->QueryStringAttribute("file",&textureFile);
             texturePath = strcat(textureP,textureFile);
             solid.addTexture(texturePath);
 

@@ -18,9 +18,6 @@ private:
     int vertexCount;
     Colour colour;
     char texturePath[128];
-    int hasNormals = 0;
-    int hasTextures = 0;
-
 
 
 public:

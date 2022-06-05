@@ -3,7 +3,6 @@
 
 void Solid::addTexture(char *texturePath){
     strcpy(this->texturePath,texturePath);
-    this->hasTextures = 1;
 }
 
 
@@ -17,7 +16,6 @@ void Solid::addTriangle(Triangle &t) {
 
 void Solid::addColour(Colour colour){
     this->colour = colour;
-    this->hasNormals = 1;
 }
 
 
@@ -37,34 +35,32 @@ void Solid :: drawSolid(){
 
 void Solid :: loadTexture(){
 
-    if(hasTextures){
+    unsigned int t, tw, th;
+    unsigned char *textureData;
 
-        unsigned int t, tw, th;
-        unsigned char *textureData;
-        ilGenImages(1, &t);
-        ilBindImage(t);
-        ilLoadImage((ILstring)this->texturePath);
+    ilGenImages(1, &t);
+    ilBindImage(t);
+    ilLoadImage((ILstring)this->texturePath);
+    //printf("\n%s\n",this->texturePath);
 
-        tw = ilGetInteger(IL_IMAGE_WIDTH);
-        th = ilGetInteger(IL_IMAGE_HEIGHT);
-        ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
-        textureData = ilGetData();
+    tw = ilGetInteger(IL_IMAGE_WIDTH);
+    th = ilGetInteger(IL_IMAGE_HEIGHT);
+    ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
+    textureData = ilGetData();
 
-        GLuint texture;
+    glGenTextures(1, &this->idTextureData);
+    glBindTexture(GL_TEXTURE_2D, this->idTextureData);
 
-        glGenTextures(1, &texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-        glBindTexture(GL_TEXTURE_2D, texture);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
+    glGenerateMipmap(GL_TEXTURE_2D);
 
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tw, th, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-    }
+    glBindTexture(GL_TEXTURE_2D,0);
 
 }
 
@@ -88,18 +84,15 @@ void Solid :: loadSolidVBO(){
     glBufferData(GL_ARRAY_BUFFER,points.size()*sizeof(float),points.data(),GL_STATIC_DRAW);
 
     //Load das normais
-    if(hasNormals) {
-        glGenBuffers(1, &this->idNormals);
-        glBindBuffer(GL_ARRAY_BUFFER, this->idNormals);
-        glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(float), normals.data(), GL_STATIC_DRAW);
-    }
+    glGenBuffers(1, &this->idNormals);
+    glBindBuffer(GL_ARRAY_BUFFER, this->idNormals);
+    glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(float), normals.data(), GL_STATIC_DRAW);
+
 
     //Load das texturas
-    if(hasTextures) {
-        glGenBuffers(1,&this->idTextures);
-        glBindBuffer(GL_ARRAY_BUFFER,this->idTextures);
-        glBufferData(GL_ARRAY_BUFFER,textures.size()*sizeof(float),textures.data(),GL_STATIC_DRAW);
-    }
+    glGenBuffers(1,&this->idTextures);
+    glBindBuffer(GL_ARRAY_BUFFER,this->idTextures);
+    glBufferData(GL_ARRAY_BUFFER,textures.size()*sizeof(float),textures.data(),GL_STATIC_DRAW);
 
 }
 

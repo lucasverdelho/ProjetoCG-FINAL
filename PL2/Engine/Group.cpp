@@ -82,7 +82,7 @@ void Group::loadGroup(){
 
     for(Solid &s:this->models){
         s.loadSolidVBO();
-        s.loadTexture();//bruh???
+        s.loadTexture();
     }
 
 }
